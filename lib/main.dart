@@ -1,6 +1,7 @@
 //import 'dart:js';
 
 import 'package:flutter/material.dart';
+import 'package:mobilecatchmehigher/activityHome.dart';
 import 'package:mobilecatchmehigher/createprofile.dart';
 import 'package:mobilecatchmehigher/existingprofile.dart';
 import 'package:mobilecatchmehigher/welcomepage.dart';
@@ -13,7 +14,8 @@ void main() {
     routes: {
       'welcomepage': (context) => WelcomePage(),
       'createprofile': (context) => CreateProfile(),
-      'existingprofile': (context) => ExistingProfile()
+      'existingprofile': (context) => ExistingProfile(),
+      'activityHome': (context) => ActivityHome()
     },
   ));
 }

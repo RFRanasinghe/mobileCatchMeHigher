@@ -14,8 +14,14 @@ class _WelcomePageState extends State<WelcomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Center(
-          child: Text("Welcome to Catch Me Higher"),
+          child: Text(
+            "Welcome to Catch Me Higher",
+            style: TextStyle(
+              fontSize: 26,
+            ),
+          ),
         ),
+        backgroundColor: Colors.green,
       ),
       body: Center(
         child: Container(
@@ -26,19 +32,48 @@ class _WelcomePageState extends State<WelcomePage> {
               fit: BoxFit.cover,
             ),
           ),
-          child: Row(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              new ElevatedButton(
-                child: new Text("Create Profile"),
-                onPressed: () {
-                  Navigator.pushNamed(context, 'createprofile');
-                },
+              Padding(
+                padding: const EdgeInsets.all(60.0),
+                child: SizedBox(
+                  width: 400,
+                  child: new ElevatedButton(
+                    child: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: new Text(
+                        "Create Profile",
+                        style: TextStyle(
+                          fontSize: 30,
+                        ),
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.pushNamed(context, 'createprofile');
+                    },
+                  ),
+                ),
               ),
-              new ElevatedButton(
-                  child: new Text("Existing Profile"),
-                  onPressed: () {
-                    Navigator.pushNamed(context, 'existingprofile');
-                  }),
+              Padding(
+                padding: const EdgeInsets.all(60.0),
+                child: SizedBox(
+                  width: 400,
+                  child: new ElevatedButton(
+                      child: Padding(
+                        padding: const EdgeInsets.all(20.0),
+                        child: new Text(
+                          "Existing Profile",
+                          style: TextStyle(
+                            fontSize: 30,
+                          ),
+                        ),
+                      ),
+                      onPressed: () {
+                        Navigator.pushNamed(context, 'existingprofile');
+                      }),
+                ),
+              ),
             ],
           ),
         ),

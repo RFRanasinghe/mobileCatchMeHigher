@@ -1,20 +1,25 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class ExistingProfile extends StatefulWidget {
-  const ExistingProfile({Key? key}) : super(key: key);
+class ActivityHome extends StatefulWidget {
+  const ActivityHome({Key? key}) : super(key: key);
 
   @override
-  _ExistingProfileState createState() => _ExistingProfileState();
+  _ActivityHomeState createState() => _ActivityHomeState();
 }
 
-class _ExistingProfileState extends State<ExistingProfile> {
+class _ActivityHomeState extends State<ActivityHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Center(
-          child: Text("Existing Profile"),
+          child: Text(
+            "Activity Home",
+            style: TextStyle(
+              fontSize: 26,
+            ),
+          ),
         ),
         backgroundColor: Colors.green,
       ),
@@ -26,16 +31,6 @@ class _ExistingProfileState extends State<ExistingProfile> {
               image: AssetImage('images/galaxy.png'),
               fit: BoxFit.cover,
             ),
-          ),
-          child: Column(
-            children: [
-              ElevatedButton(
-                child: Text('Activity Home'),
-                onPressed: () {
-                  Navigator.pushNamed(context, 'activityHome');
-                },
-              ),
-            ],
           ),
         ),
       ),
