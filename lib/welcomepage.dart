@@ -21,7 +21,7 @@ class _WelcomePageState extends State<WelcomePage> {
             ),
           ),
         ),
-        backgroundColor: Colors.green,
+        backgroundColor: Colors.blue,
       ),
       body: Center(
         child: Container(
@@ -52,6 +52,12 @@ class _WelcomePageState extends State<WelcomePage> {
                     onPressed: () {
                       Navigator.pushNamed(context, 'createprofile');
                     },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.orangeAccent,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20.0),
+                      ),
+                    ),
                   ),
                 ),
               ),
@@ -60,18 +66,25 @@ class _WelcomePageState extends State<WelcomePage> {
                 child: SizedBox(
                   width: 400,
                   child: new ElevatedButton(
-                      child: Padding(
-                        padding: const EdgeInsets.all(20.0),
-                        child: new Text(
-                          "Existing Profile",
-                          style: TextStyle(
-                            fontSize: 30,
-                          ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: new Text(
+                        "Existing Profile",
+                        style: TextStyle(
+                          fontSize: 30,
                         ),
                       ),
-                      onPressed: () {
-                        Navigator.pushNamed(context, 'existingprofile');
-                      }),
+                    ),
+                    onPressed: () {
+                      Navigator.pushNamed(context, 'existingprofile');
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.orangeAccent,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20.0),
+                      ),
+                    ),
+                  ),
                 ),
               ),
             ],

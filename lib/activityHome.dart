@@ -21,7 +21,7 @@ class _ActivityHomeState extends State<ActivityHome> {
             ),
           ),
         ),
-        backgroundColor: Colors.green,
+        backgroundColor: Colors.blue,
       ),
       body: Center(
         child: Container(
@@ -31,6 +31,90 @@ class _ActivityHomeState extends State<ActivityHome> {
               image: AssetImage('images/galaxy.png'),
               fit: BoxFit.cover,
             ),
+          ),
+          child: Column(
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.all(80.0),
+                child: SizedBox(
+                  width: 800,
+                  child: new ElevatedButton(
+                    child: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: new Text(
+                        "Music",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 30,
+                        ),
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.pushNamed(context, 'music');
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.orange,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15.0),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(40.0),
+                child: SizedBox(
+                  width: 400,
+                  child: new ElevatedButton(
+                    child: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: new Text(
+                        "Exercises",
+                        style: TextStyle(
+                          fontSize: 30,
+                        ),
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.pushNamed(context, 'exercise');
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.orange,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15.0),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(40.0),
+                child: SizedBox(
+                  width: 400,
+                  child: new ElevatedButton(
+                    child: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: new Text(
+                        "Pattern Recognition",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 30,
+                        ),
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.pushNamed(context, 'patternRec');
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.orange,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15.0),
+                      ),
+                    ),
+                  ),
+                ),
+              )
+            ],
           ),
         ),
       ),
