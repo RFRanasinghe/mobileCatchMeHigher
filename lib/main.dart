@@ -1,5 +1,3 @@
-//import 'dart:js';
-
 import 'dart:js';
 
 import 'package:flutter/material.dart';
@@ -9,6 +7,7 @@ import 'package:mobilecatchmehigher/exercise.dart';
 import 'package:mobilecatchmehigher/existingprofile.dart';
 import 'package:mobilecatchmehigher/music.dart';
 import 'package:mobilecatchmehigher/patternRec.dart';
+import 'package:mobilecatchmehigher/patternThree.dart';
 import 'package:mobilecatchmehigher/patternTwo.dart';
 import 'package:mobilecatchmehigher/welcomepage.dart';
 
@@ -22,10 +21,11 @@ void main() {
       'createprofile': (context) => CreateProfile(),
       'existingprofile': (context) => ExistingProfile(),
       'activityHome': (context) => ActivityHome(),
-      'music':(context) => MusicHomePage(),
-      'exercise':(context) => ExerciseHomePage(),
+      'music': (context) => MusicHomePage(),
+      'exercise': (context) => ExerciseHomePage(),
       'patternRec': (context) => PatternRecognitionHomePage(),
       'patternTwo': (context) => PatternTwoActivityPage(),
+      'patternThree': (context) => PatternThreeActivityPage(),
     },
   ));
 }

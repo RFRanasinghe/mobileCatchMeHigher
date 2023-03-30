@@ -127,7 +127,7 @@ class _PatternRecognitionHomePageState
             ),
             Padding(
               padding:
-                  const EdgeInsets.only(top: 300.0, left: 1350.0, right: 30.0),
+                  const EdgeInsets.only(top: 580.0, left: 180.0, right: 30.0),
               child: InkWell(
                 onTap: () {
                   Navigator.push(
@@ -138,8 +138,8 @@ class _PatternRecognitionHomePageState
                 },
                 child: Image.asset(
                   'images/right.jpg',
-                  width: 100.0,
-                  height: 100.0,
+                  width: 80.0,
+                  height: 80.0,
                 ),
               ),
             ),
