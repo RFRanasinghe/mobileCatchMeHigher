@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "194511009289",
+    "project_id": "mobiledbfordss",
+    "storage_bucket": "mobiledbfordss.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:194511009289:android:343c01d33f5fa1c1e1aad8",
+        "android_client_info": {
+          "package_name": "com.example.mobilecatchmehigher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "194511009289-g1mvm9f4lp6qs080hj171kta3q8g86ab.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwa5n43G1hzfCwhCfHOKOd9hA2f44P8pw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "194511009289-g1mvm9f4lp6qs080hj171kta3q8g86ab.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
