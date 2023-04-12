@@ -133,7 +133,7 @@ class _MusicHomePageState extends State<MusicHomePage> {
                                           shape: BoxShape.circle,
                                           color: _currentIndex == index
                                               ? Colors.green
-                                              : Colors.grey,
+                                              : Colors.pink,
                                         ),
                                       ),
                                     ),
