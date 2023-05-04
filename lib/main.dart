@@ -15,6 +15,7 @@ import 'package:mobilecatchmehigher/patternTwo.dart';
 import 'package:mobilecatchmehigher/welcomepage.dart';
 
 Future<void> main() async {
+  // Used Future method because of firebase
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(MaterialApp(

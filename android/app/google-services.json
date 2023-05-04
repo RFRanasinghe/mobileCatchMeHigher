@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "194511009289",
-    "project_id": "mobiledbfordss",
-    "storage_bucket": "mobiledbfordss.appspot.com"
+    "project_number": "862498859023",
+    "project_id": "androidfordds",
+    "storage_bucket": "androidfordds.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:194511009289:android:343c01d33f5fa1c1e1aad8",
+        "mobilesdk_app_id": "1:862498859023:android:f2bac751c60c8f29fd5b7a",
         "android_client_info": {
           "package_name": "com.example.mobilecatchmehigher"
         }
       },
       "oauth_client": [
         {
-          "client_id": "194511009289-g1mvm9f4lp6qs080hj171kta3q8g86ab.apps.googleusercontent.com",
+          "client_id": "862498859023-riq3n4ddt7ueqh8me0nl5gbsabm7pg0f.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBwa5n43G1hzfCwhCfHOKOd9hA2f44P8pw"
+          "current_key": "AIzaSyDST4uL53kEb1F1o9utbRSU5tq2HLkC0qE"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "194511009289-g1mvm9f4lp6qs080hj171kta3q8g86ab.apps.googleusercontent.com",
+              "client_id": "862498859023-riq3n4ddt7ueqh8me0nl5gbsabm7pg0f.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
