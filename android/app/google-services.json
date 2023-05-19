@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "862498859023",
-    "project_id": "androidfordds",
-    "storage_bucket": "androidfordds.appspot.com"
+    "project_number": "1088750822310",
+    "project_id": "webappfordds",
+    "storage_bucket": "webappfordds.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:862498859023:android:f2bac751c60c8f29fd5b7a",
+        "mobilesdk_app_id": "1:1088750822310:android:91476330c9b329f9696567",
         "android_client_info": {
           "package_name": "com.example.mobilecatchmehigher"
         }
       },
       "oauth_client": [
         {
-          "client_id": "862498859023-riq3n4ddt7ueqh8me0nl5gbsabm7pg0f.apps.googleusercontent.com",
+          "client_id": "1088750822310-5k0p5geq9cidjg3hq3fg4fue2okr36vj.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDST4uL53kEb1F1o9utbRSU5tq2HLkC0qE"
+          "current_key": "AIzaSyDQIE5_8oB2is1Lyy5-5orPEj0MLQPe1PA"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "862498859023-riq3n4ddt7ueqh8me0nl5gbsabm7pg0f.apps.googleusercontent.com",
+              "client_id": "1088750822310-5k0p5geq9cidjg3hq3fg4fue2okr36vj.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

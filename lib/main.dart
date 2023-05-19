@@ -13,26 +13,31 @@ import 'package:mobilecatchmehigher/patternRec.dart';
 import 'package:mobilecatchmehigher/patternThree.dart';
 import 'package:mobilecatchmehigher/patternTwo.dart';
 import 'package:mobilecatchmehigher/welcomepage.dart';
+import 'package:provider/provider.dart';
+
+import 'logged_in_user_model.dart';
 
 Future<void> main() async {
   // Used Future method because of firebase
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(MaterialApp(
-    title: "Catch Me Higher with Down Syndrome",
-    debugShowCheckedModeBanner: false,
-    initialRoute: 'welcomepage',
-    routes: {
-      'welcomepage': (context) => WelcomePage(),
-      'createprofile': (context) => CreateProfile(),
-      'existingprofile': (context) => ExistingProfile(),
-      'activityHome': (context) => ActivityHome(),
-      'music': (context) => MusicHomePage(),
-      'exercise': (context) => ExerciseHomePage(),
-      'patternRec': (context) => PatternRecognitionHomePage(),
-      'patternTwo': (context) => PatternTwoActivityPage(),
-      'patternThree': (context) => PatternThreeActivityPage(),
-      'patternFour': (context) => PatternFourActivityPage(),
-    },
-  ));
+  runApp(ChangeNotifierProvider<LoggedInUserModel>(
+      create: (context) => LoggedInUserModel(),
+      child: MaterialApp(
+        title: "Catch Me Higher with Down Syndrome",
+        debugShowCheckedModeBanner: false,
+        initialRoute: 'welcomepage',
+        routes: {
+          'welcomepage': (context) => WelcomePage(),
+          'createprofile': (context) => CreateProfile(),
+          'existingprofile': (context) => ExistingProfile(),
+          'activityHome': (context) => ActivityHome(),
+          'music': (context) => MusicHomePage(),
+          'exercise': (context) => ExerciseHomePage(),
+          'patternRec': (context) => PatternRecognitionHomePage(),
+          'patternTwo': (context) => PatternTwoActivityPage(),
+          'patternThree': (context) => PatternThreeActivityPage(),
+          'patternFour': (context) => PatternFourActivityPage(),
+        },
+      )));
 }

@@ -1,8 +1,15 @@
+import 'dart:io';
+import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 
 class CreateProfile extends StatefulWidget {
   const CreateProfile({Key? key}) : super(key: key);
@@ -12,14 +19,26 @@ class CreateProfile extends StatefulWidget {
 }
 
 class _CreateProfileState extends State<CreateProfile> {
+  final _formKey = GlobalKey<FormState>();
+
   bool isButtonActive = true;
-  //final FirebaseStorage storage = FirebaseStorage.instance;
-  //final Reference ref = storage.ref().child('students');
 
   TextEditingController _idNumberController = TextEditingController();
   TextEditingController _nameController = TextEditingController();
   TextEditingController _emailController = TextEditingController();
   TextEditingController _conditionTypeController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
+
+  final _activities = ['Music', 'Exercies', 'Pattern Recognition'];
+  Map<String, bool> _selectedActivities = {};
+
+  @override
+  void initState() {
+    super.initState();
+    _activities.forEach((activity) {
+      _selectedActivities[activity] = false;
+    });
+  }
 
   @override
   void dispose() {
@@ -30,9 +49,50 @@ class _CreateProfileState extends State<CreateProfile> {
     super.dispose();
   }
 
-  //final databaseRef = FirebaseDatabase.instance.reference();
+  // final picker = ImagePicker();
+  // late File _image;
+  // late String _imageDownloadUrl;
+  //   late Uint8List _imageBytes;
 
-  final _formKey = GlobalKey<FormState>();
+  // Future<void> _pickImage() async {
+  //   final pickedFile = await picker.pickImage(source: ImageSource.gallery);
+
+  //   if (pickedFile != null) {
+  //     final bytes = await pickedFile.readAsBytes();
+  //     setState(() async {
+  //       _image = File(pickedFile.path);
+  //       _imageBytes = await pickedFile.readAsBytes();
+  //       _imageBytes = bytes;
+  //     });
+
+  //     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+  //       content: Text("Student image inserted successfully"),
+  //     ));
+  //   }
+  // }
+
+  // Future<void> _uploadImage() async {
+  //   if (_imageBytes == null) {
+  //     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+  //       content: Text("Student Image did not get upload properlly"),
+  //     ));
+  //     return;
+  //   }
+
+  //   var firebase_storage;
+  //   final storageRef = firebase_storage.FirebaseStorage.instance
+  //       .ref()
+  //       .child('student_images')
+  //       .child(DateTime.now().toIso8601String());
+
+  //   final uploadTask = storageRef.File(_image);
+  //   final snapshot = await uploadTask.whenComplete(() => null);
+  //   final downloadUrl = await snapshot.ref.getDownloadURL();
+
+  //   setState(() {
+  //     _imageDownloadUrl = downloadUrl;
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +112,7 @@ class _CreateProfileState extends State<CreateProfile> {
             ),
           ),
           child: Padding(
-            padding: EdgeInsets.all(20.0),
+            padding: EdgeInsets.all(7.0),
             child: Form(
               key: _formKey,
               child: Column(
@@ -76,9 +136,7 @@ class _CreateProfileState extends State<CreateProfile> {
                         }
                         return null;
                       },
-                      onSaved: (value) {
-                        //_name = value;
-                      },
+                      onSaved: (value) {},
                     ),
                   ),
                   Padding(
@@ -147,8 +205,32 @@ class _CreateProfileState extends State<CreateProfile> {
                   Padding(
                     padding: const EdgeInsets.only(
                         left: 20.0, right: 20.0, top: 2.0),
-                    //child: ElevatedButton(onPressed: onPressed, child: child),
+                    child: TextFormField(
+                      controller: _passwordController,
+                      decoration: InputDecoration(
+                        labelText: "Password",
+                        labelStyle: TextStyle(
+                          fontSize: 20.0,
+                          color: Colors.white,
+                        ),
+                      ),
+                      validator: (value) {
+                        if (value == '') {
+                          return 'Please enter the correct password';
+                        }
+                        return null;
+                      },
+                      onSaved: (value) {},
+                    ),
                   ),
+                  // Padding(
+                  //   padding: const EdgeInsets.only(
+                  //       left: 20.0, right: 20.0, top: 2.0),
+                  //   child: ElevatedButton(
+                  //     onPressed: _pickImage,
+                  //     child: Text("Choose Image"),
+                  //   ),
+                  // ),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
@@ -158,25 +240,13 @@ class _CreateProfileState extends State<CreateProfile> {
                           width: 200,
                           height: 60,
                           child: ElevatedButton(
-                            onPressed: () {
-                              createData();
-                              //* if (_idNumberController == null &&
-                              //     _nameController == null &&
-                              //     _emailController == null &&
-                              //     _conditionTypeController == null) {
-                              //   insertData(
-                              //       _idNumberController as String,
-                              //       _nameController as String,
-                              //       _emailController as String,
-                              //       _conditionTypeController as String);
-                              //* }
-                            },
-                            //   onPressed: isButtonActive ? () {
-                            //     if(_formKey.currentState!.validate()) {
-                            //       insertData();
-                            //     }
-                            //   }
-                            // : null,
+                            onPressed: isButtonActive
+                                ? () {
+                                    if (_formKey.currentState!.validate()) {
+                                      createData();
+                                    }
+                                  }
+                                : null,
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.orangeAccent,
                               shape: RoundedRectangleBorder(
@@ -197,7 +267,7 @@ class _CreateProfileState extends State<CreateProfile> {
                           height: 70,
                           child: ElevatedButton(
                             onPressed: () {
-                              Navigator.pushNamed(context, 'activityHome');
+                              Navigator.pushNamed(context, 'existingprofile');
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.pink,
@@ -206,7 +276,7 @@ class _CreateProfileState extends State<CreateProfile> {
                               ),
                             ),
                             child: Text(
-                              "Activity Home",
+                              "Log In",
                               style: TextStyle(fontSize: 30),
                             ),
                           ),
@@ -221,84 +291,43 @@ class _CreateProfileState extends State<CreateProfile> {
         ),
       ),
     );
-
-    //   Future<void> submitForm() async {
-    //   final txtName = _nameController.value.text;
-    //   final txtemail = _emailController.value.text;
-    //   final txtid_number = _idNumberController.value.text;
-    //   final txtcondition_type = _conditionTypeController.value.text;
-
-    //   //convert XFIle to file
-
-    //   uploadFile(
-    //     txtName,
-    //     txtemail,
-    //     txtid_number,
-    //     txtcondition_type,
-    //   );
-    // }
   }
 
-  Future createData() async {
-    final userCollection = FirebaseFirestore.instance.collection("students");
+  Future<void> createData() async {
+    try {
+      // Get a reference to the "students" collection
+      final userCollection = FirebaseFirestore.instance.collection("students");
 
-    final docRef = userCollection
-        .doc(); //firebase shall generate random ids for each document
+      //firebase shall generate random ids for each document
+      final docRef = userCollection.doc();
 
-    await docRef.set({
-      "idnumber": _idNumberController.text,
-      "name": _nameController.text,
-      "email": _emailController.text,
-      "condition": _conditionTypeController.text
-    });
+      //Create the user using the email and ID number provided
+      final userCredentials = await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(
+              email: _emailController.text, password: _passwordController.text);
+
+      // Get the authenticated user's ID
+      final userId = userCredentials.user!.uid;
+
+      await userCollection.doc(userId).set({
+        "uid": userId,
+        "idnumber": _idNumberController.text,
+        "name": _nameController.text,
+        "email": _emailController.text,
+        "condition": _conditionTypeController.text,
+        'timestamp': FieldValue.serverTimestamp(),
+      });
+
+      // Show a success message
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text("Student data saved successfully"),
+      ));
+    } catch (e) {
+      // Show an error message if there was a problem
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text("An error occured while saving student data"),
+      ));
+      print(e.toString());
+    }
   }
-
-  //* void insertData(
-  //     String id_number, String name, String email, String condition) {
-  //   databaseRef.child("path").set({
-  //     'id_number': id_number,
-  //     'name': name,
-  //     'email': email,
-  //     'condition_type': condition,
-  //   });
-  //* }
-
-  // uploadFile(txtName, txtEmail, txtid_number, txtcondition_type) async {
-  //   // upload file to firebase storage
-  //   //create reference to the firebase storage bucket
-  //   final FirebaseStorage storage = FirebaseStorage.instance;
-  //   final Reference storageReference =
-  //       storage.ref().child('profile_pictures_of_dss');
-
-  //   if (files.isNotEmpty) {
-  //     final imageXFile = files.last;
-  //     //upload file
-  //     final file = File(imageXFile.path);
-  //     final TaskSnapshot taskSnapshot = await storageReference.putFile(file);
-
-  //     final imageURL =
-  //         await taskSnapshot.ref.getDownloadURL(); //get download url
-
-  //     DatabaseReference reference =
-  //         FirebaseDatabase.instance.reference().child('Students');
-
-  //     reference
-  //         .push()
-  //         .set({
-  //           'name': txtName,
-  //           'email': txtEmail,
-  //           'id_number': txtid_number,
-  //           'condition_type': txtcondition_type,
-  //           'imageURL': imageURL
-  //         })
-  //         .then((value) => {
-  //               //data successfully submitted
-  //               print('Data stored successfully')
-  //             })
-  //         .catchError((error) {
-  //           //handle error
-  //           print('Data did not get saved successfully');
-  //         });
-  //   } else {}
-  // }
 }
