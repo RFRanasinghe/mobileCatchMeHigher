@@ -49,51 +49,6 @@ class _CreateProfileState extends State<CreateProfile> {
     super.dispose();
   }
 
-  // final picker = ImagePicker();
-  // late File _image;
-  // late String _imageDownloadUrl;
-  //   late Uint8List _imageBytes;
-
-  // Future<void> _pickImage() async {
-  //   final pickedFile = await picker.pickImage(source: ImageSource.gallery);
-
-  //   if (pickedFile != null) {
-  //     final bytes = await pickedFile.readAsBytes();
-  //     setState(() async {
-  //       _image = File(pickedFile.path);
-  //       _imageBytes = await pickedFile.readAsBytes();
-  //       _imageBytes = bytes;
-  //     });
-
-  //     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-  //       content: Text("Student image inserted successfully"),
-  //     ));
-  //   }
-  // }
-
-  // Future<void> _uploadImage() async {
-  //   if (_imageBytes == null) {
-  //     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-  //       content: Text("Student Image did not get upload properlly"),
-  //     ));
-  //     return;
-  //   }
-
-  //   var firebase_storage;
-  //   final storageRef = firebase_storage.FirebaseStorage.instance
-  //       .ref()
-  //       .child('student_images')
-  //       .child(DateTime.now().toIso8601String());
-
-  //   final uploadTask = storageRef.File(_image);
-  //   final snapshot = await uploadTask.whenComplete(() => null);
-  //   final downloadUrl = await snapshot.ref.getDownloadURL();
-
-  //   setState(() {
-  //     _imageDownloadUrl = downloadUrl;
-  //   });
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -108,6 +63,8 @@ class _CreateProfileState extends State<CreateProfile> {
           decoration: BoxDecoration(
             image: DecorationImage(
               image: AssetImage('images/galaxy.png'),
+              colorFilter: ColorFilter.mode(
+                  Colors.white.withOpacity(0.9), BlendMode.modulate),
               fit: BoxFit.cover,
             ),
           ),

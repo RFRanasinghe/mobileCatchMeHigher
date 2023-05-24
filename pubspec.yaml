@@ -46,6 +46,8 @@ dependencies:
   path_provider: ^2.0.14
   firebase_auth: ^4.6.0
   provider: ^6.0.1
+  #audioplayers: ^4.0.1
+  #flutter_sound: ^9.2.13
 
 dev_dependencies:
   flutter_test:
@@ -78,6 +80,8 @@ flutter:
     - images/pq4.jpg
     - images/right.jpg
     - images/left.jpg
+    - images/pattern3.jpg
+    - images/pattern4.png
     - videos/
 
   # An image asset can refer to one or more resolution-specific "variants", see

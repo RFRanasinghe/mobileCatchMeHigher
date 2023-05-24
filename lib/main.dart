@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'dart:io';
 import 'package:file_picker/file_picker.dart';
+import 'package:mobilecatchmehigher/admin.dart';
 import 'package:video_player/video_player.dart';
 import 'package:mobilecatchmehigher/activityHome.dart';
 import 'package:mobilecatchmehigher/createprofile.dart';
@@ -38,6 +39,7 @@ Future<void> main() async {
           'patternTwo': (context) => PatternTwoActivityPage(),
           'patternThree': (context) => PatternThreeActivityPage(),
           'patternFour': (context) => PatternFourActivityPage(),
+          'admin': (context) => AdminMonitorPage()
         },
       )));
 }

@@ -74,9 +74,29 @@ class _MusicHomePageState extends State<MusicHomePage> {
               margin: EdgeInsets.only(
                   top: 20.0, left: 20.0, bottom: 20, right: 20.0),
             ),
+            Padding(
+              padding: const EdgeInsets.only(top: 40.0, left: 40.0),
+              child: SizedBox(
+                width: 320,
+                child: ElevatedButton.icon(
+                  onPressed: () {},
+                  icon: Icon(Icons.login),
+                  label: Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Text(
+                      "Select your songs from the given options",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 20,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
             Positioned(
               child: Padding(
-                padding: const EdgeInsets.only(top: 30.0, left: 30.0),
+                padding: const EdgeInsets.only(top: 160.0, left: 30.0),
                 child: SizedBox(
                   width: 350.0,
                   height: 600.0,

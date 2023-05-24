@@ -96,6 +96,8 @@ class _ExistingProfileState extends State<ExistingProfile> {
           decoration: BoxDecoration(
             image: DecorationImage(
               image: AssetImage('images/galaxy.png'),
+              colorFilter: ColorFilter.mode(
+                  Colors.white.withOpacity(0.8), BlendMode.modulate),
               fit: BoxFit.cover,
             ),
           ),
@@ -108,14 +110,16 @@ class _ExistingProfileState extends State<ExistingProfile> {
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(
-                        left: 20.0, right: 20.0, top: 2.0),
+                        left: 20.0, right: 20.0, top: 80.0),
                     child: TextFormField(
                       controller: _emailController,
                       decoration: InputDecoration(
                         labelText: "Email",
                         labelStyle: TextStyle(
-                          fontSize: 20.0,
+                          fontSize: 30.0,
+                          fontStyle: FontStyle.italic,
                           color: Colors.white,
+                          
                         ),
                       ),
                       validator: (value) {
@@ -129,13 +133,14 @@ class _ExistingProfileState extends State<ExistingProfile> {
                   ),
                   Padding(
                     padding: const EdgeInsets.only(
-                        left: 20.0, right: 20.0, top: 2.0),
+                        left: 20.0, right: 20.0, top: 50.0),
                     child: TextFormField(
                       controller: _passwordController,
                       decoration: InputDecoration(
                         labelText: "Password",
                         labelStyle: TextStyle(
-                          fontSize: 20.0,
+                          fontSize: 30.0,
+                          fontStyle: FontStyle.italic,
                           color: Colors.white,
                         ),
                       ),
@@ -152,7 +157,7 @@ class _ExistingProfileState extends State<ExistingProfile> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Padding(
-                        padding: EdgeInsets.only(left: 20.0, top: 40.0),
+                        padding: EdgeInsets.only(left: 100.0, top: 160.0),
                         child: SizedBox(
                           width: 200,
                           height: 60,

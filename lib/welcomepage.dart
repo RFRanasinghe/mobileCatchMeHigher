@@ -33,12 +33,12 @@ class _WelcomePageState extends State<WelcomePage> {
             ),
           ),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               Padding(
-                padding: const EdgeInsets.all(60.0),
+                padding: const EdgeInsets.only(top: 10.0),
                 child: SizedBox(
-                  width: 400,
+                  width: 300,
                   child: new ElevatedButton(
                     child: Padding(
                       padding: const EdgeInsets.all(20.0),
@@ -62,9 +62,9 @@ class _WelcomePageState extends State<WelcomePage> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(60.0),
+                padding: const EdgeInsets.only(top: 30.0),
                 child: SizedBox(
-                  width: 400,
+                  width: 300,
                   child: new ElevatedButton(
                     child: Padding(
                       padding: const EdgeInsets.all(20.0),
@@ -77,6 +77,32 @@ class _WelcomePageState extends State<WelcomePage> {
                     ),
                     onPressed: () {
                       Navigator.pushNamed(context, 'existingprofile');
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.orangeAccent,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20.0),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 30.0),
+                child: SizedBox(
+                  width: 300,
+                  child: new ElevatedButton(
+                    child: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: new Text(
+                        "Admin",
+                        style: TextStyle(
+                          fontSize: 30,
+                        ),
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.pushNamed(context, 'admin');
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.orangeAccent,
